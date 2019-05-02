@@ -1,0 +1,24 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_path")
+
+# gazelle:prefix github.com/robfig/teamcity-skycfg
+gazelle(name = "gazelle")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/robfig/teamcity-skycfg",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//teamcity:go_default_library",
+        "@com_github_gogo_protobuf//jsonpb:go_default_library",
+        "@com_github_stripe_skycfg//:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "teamcity-skycfg",
+    data = glob(["testdata/**"]),
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package teamcity;
+
+message Project {
+  string id = 1;
+  string name = 2;
+}
+
+message BuildConfiguration {
+  string id = 1;
+  string name = 2;
+  repeated SnapshotDependency snapshot_dependency = 3;
+}
+
+message SnapshotDependency {
+  string build_configuration_id = 1;
+}

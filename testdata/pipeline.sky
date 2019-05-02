@@ -1,0 +1,83 @@
+# load("//buildchains.sky", "serial", "parallel")
+
+tc = proto.package("teamcity")
+
+# def serial(buildConfigurations):
+#     last = None
+#     for cfg in buildConfigurations:
+#         if last:
+#             cfg.
+
+# def parallel(buildConfigurations):
+
+
+
+
+def standardPipeline(srv):
+    commit = tc.BuildConfiguration(
+        id = project.Name+"_Commit",
+        name = "Commit",
+    )
+
+    if srv.Office
+    tc.BuildConfiguration(
+        id = "Office_"+job,
+        name = "Office",
+    )
+
+    tc.BuildConfiguration(
+        id = project+"_Acceptance",
+        name = "Acceptance",
+        snapshot_dependency=[
+            commit,
+        ],
+    )
+
+
+def main(ctx):
+    return [tc.Project(
+        id = "MyTestProject",
+        name = "A test project",
+    )]
+
+
+def pipeline():
+
+
+
+build_chain(
+    agent=None,
+    build_configurations=[
+        build_configuration(
+            name="Commit",
+            steps=[
+
+            ],
+        ),
+    ],
+)
+
+
+tc.BuildConfiguration(
+    snapshot_dependency = [
+        tc.SnapshotDependency(
+            build_configuration_id =
+)
+
+# tc.BuildChain(
+#     project=project,
+#     stages=[
+#       stage({
+
+#       }),
+#     ],
+# )
+
+
+# {
+#   resource: {
+#     teamcity_buildconfiguration: {
+
+#     },
+#   }
+# }
